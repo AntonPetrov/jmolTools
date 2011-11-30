@@ -9,6 +9,7 @@
 
 	var models       = new Array();
 	var neighborhood = false;
+	var radio        = false;
 	var maxModel     = 1;
 	var settings     = {};
 	var self = this;
@@ -40,8 +41,6 @@
 			$.post(settings.serverUrl, { 'model': nts },
 				function(data) {
 					jmolScript("load DATA \"append structure\"\n" + data + 'end "append structure";');
-//					self.superimpose();
-//					self.style();
 					self.display();
 			});
 		}
@@ -50,8 +49,12 @@
 		this.superimpose = function () {
 			var m = self.modelNumber;
 			if ( m > 1 ) {
-				for (var i = 0; i < 10; i++) {
-					jmolScript('x=compare({*.P/' + m + '.1},{*.P/1.1});');
+				for (var i = 0; i < 3; i++) {
+
+                    // if the same number of phosphates, try to superimpose,
+                    // otherwise take the first four phosphates
+                    jmolScript('if ({*.P/'+m+'.1}.length == {*.P/1.1}) {x=compare({*.P/' + m + '.1},{*.P/1.1});} else {x=compare({(*.P/' + m + '.1)[1][4]},{(*.P/1.1)[1][4]});}');
+ 					// jmolScript('x=compare({(*.P/' + m + '.1)[1][4]},{(*.P/1.1)[1][4]});');
 					jmolScript('select ' + m + '.0; rotate selected @{x};');
 				}
 			}
@@ -66,7 +69,7 @@
 			jmolScript('select [A]/' + m + '.1; color red;');
 			jmolScript('select */' + m + '.2; color grey;');
 			jmolScript('select ' + m + '.2; color translucent 0.8;');
-			jmolScript('select ' + m + '.0;spacefill off;center 1.1;');
+			jmolScript('select ' + m + '.0;spacefill off;center '+m+'.1;');
 		}
 
 		this.set_neighborhood = function (neighborhood) {
@@ -95,12 +98,17 @@
 					jmolScript('frame *;display displayed or ' + self.modelNumber + '.1;');
 					jmolScript('frame *;display displayed and not ' + self.modelNumber + '.2;');
 				}
-				jmolScript('center 1.1;');
+				jmolScript('center '+self.modelNumber+'.1;');
 			} else {
 				// hide everything
 				jmolScript('frame *;display displayed and not ' + self.modelNumber + '.0;');
 			}
 
+		}
+
+		this.hide = function () {
+		    jmolScript('frame *;display displayed and not ' + self.modelNumber + '.0;');
+		    this.checked = false;
 		}
 
 		this.display = function() {
@@ -139,7 +147,16 @@
 			models[id].style();
 			models[id].toggle_view();
 		}
-		jmolScript('center 1.1;');
+
+        // special case for radiobuttons
+        if (radio == true && maxModel != 2) {
+            this_model = maxModel - 1;
+            for (id in models) {
+                if (models[id].modelNumber != this_model) {
+                    models[id].hide();
+                }
+            }
+        }
 
 	}
 
@@ -172,6 +189,12 @@
 		});
 
    		settings.chbxClass = '.' + settings.chbxClass;
+
+        // different behavior for checkboxes and radiobuttons
+   		if ($(settings.chbxClass).attr('type') == 'radio') {
+   		    radio = true;
+   		}
+
    		$(settings.chbxClass).click(jmolInlineLoader.checkbox_click);
    		checkbox_click( $(settings.chbxClass).first().attr('id') );
 
