@@ -3,8 +3,8 @@
  *
  *
  */
- 
- 
+
+
 ;var jmolInlineLoader = function(){
 
 	var models       = new Array();
@@ -131,17 +131,17 @@
 		}
 
 	}
-	
+
 	this.superimpose_all = function () {
-		
+
 		for (id in models) {
 			models[id].superimpose();
 			models[id].style();
 			models[id].toggle_view();
 		}
 		jmolScript('center 1.1;');
-		
-	}	
+
+	}
 
 	this.toggle_neighborhood = function() {
 
@@ -168,7 +168,7 @@
    		jmolScript('set baseCartoonEdges = true;');
 
 		$(document).ajaxStop(function() {
-			superimpose_all();			  
+			superimpose_all();
 		});
 
    		settings.chbxClass = '.' + settings.chbxClass;
@@ -208,7 +208,7 @@
 		if ( chbx[chbx.length-1].checked ) {
 			toCheck.push(0);
 			checkbox_click(chbx[chbx.length-1].id);
-		}		
+		}
 		$(settings.chbxClass + ':checked').removeAttr('checked');
 
 		for (i=0;i<toCheck.length;i++) {
@@ -237,7 +237,7 @@
 		if ( chbx[0].checked ) {
 			toCheck.push(chbx.length-1);
 			checkbox_click(chbx[0].id);
-		}		
+		}
 		// temporarily uncheck everything
 		$(settings.chbxClass+':checked').removeAttr('checked');
 		// check only the right ones
@@ -267,7 +267,7 @@
 			this.value = 'Hide all';
 			$(settings.chbxClass+':not(:checked)').each( function(i) {
 				this.checked = true;
-				checkbox_click(this.id);				
+				checkbox_click(this.id);
 			});
 		}
 	}
