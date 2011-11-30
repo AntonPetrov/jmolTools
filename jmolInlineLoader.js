@@ -27,12 +27,15 @@
 	// "Private" class. Stores the state of each checkbox.
 	function model(id, modelNumber, neighborhood) {
 
-		this.id = id;
+		this.id           = id;
 		this.neighborhood = neighborhood;
-		this.modelNumber = modelNumber;
-		this.checked = false;
-		this.jQ = $('#'+id);
-		var self = this;
+		this.modelNumber  = modelNumber;
+        this.superimposed = false;
+        this.styled       = false;
+		this.checked      = false;
+		this.hidden       = false;
+		this.jQ           = $('#'+id);
+		var self          = this;
 
 		// load the very first structure
 		this.load_and_display = function () {
@@ -47,29 +50,37 @@
 
 		// superimpose this model onto the first one using phosphate atoms
 		this.superimpose = function () {
-			var m = self.modelNumber;
-			if ( m > 1 ) {
-				for (var i = 0; i < 3; i++) {
+		    if (self.superimposed == false) {
+                var m = self.modelNumber;
+                if ( m > 1 ) {
+                    for (var i = 0; i < 3; i++) {
 
-                    // if the same number of phosphates, try to superimpose,
-                    // otherwise take the first four phosphates
-                    jmolScript('if ({*.P/'+m+'.1}.length == {*.P/1.1}) {x=compare({*.P/' + m + '.1},{*.P/1.1});} else {x=compare({(*.P/' + m + '.1)[1][4]},{(*.P/1.1)[1][4]});}');
- 					// jmolScript('x=compare({(*.P/' + m + '.1)[1][4]},{(*.P/1.1)[1][4]});');
-					jmolScript('select ' + m + '.0; rotate selected @{x};');
-				}
-			}
+                        // if the same number of phosphates, try to superimpose,
+                        // otherwise take the first four phosphates
+                        jmolScript('if ({*.P/'+m+'.1}.length == {*.P/1.1}) {x=compare({*.P/' + m + '.1},{*.P/1.1});} else {x=compare({(*.P/' + m + '.1)[1][4]},{(*.P/1.1)[1][4]});}');
+                        // jmolScript('x=compare({(*.P/' + m + '.1)[1][4]},{(*.P/1.1)[1][4]});');
+                        jmolScript('select ' + m + '.0; rotate selected @{x};');
+                    }
+                }
+                self.superimposed = true;
+            }
 		}
 
 		// apply styling to the model
 		this.style = function () {
-			var m = self.modelNumber;
-		 	jmolScript('select [U]/' + m + '.1; color navy;');
-		 	jmolScript('select [G]/' + m + '.1; color chartreuse;');
-		 	jmolScript('select [C]/' + m + '.1; color gold;');
-			jmolScript('select [A]/' + m + '.1; color red;');
-			jmolScript('select */' + m + '.2; color grey;');
-			jmolScript('select ' + m + '.2; color translucent 0.8;');
-			jmolScript('select ' + m + '.0;spacefill off;center '+m+'.1;');
+		    if (self.styled == false) {
+                var m = self.modelNumber;
+                jmolScript('select [U]/' + m + '.1; color navy;');
+                jmolScript('select [G]/' + m + '.1; color chartreuse;');
+                jmolScript('select [C]/' + m + '.1; color gold;');
+                jmolScript('select [A]/' + m + '.1; color red;');
+                jmolScript('select */' + m + '.2; color grey;');
+                jmolScript('select ' + m + '.2; color translucent 0.8;');
+                jmolScript('select protein; color purple; color translucent 0.8;');
+                jmolScript('select ' + m + '.0;spacefill off;center ' + m + '.1;');
+                jmolScript('zoom {' + m + '} 200;');
+                self.styled = true;
+            }
 		}
 
 		this.set_neighborhood = function (neighborhood) {
@@ -101,20 +112,24 @@
 				jmolScript('center '+self.modelNumber+'.1;');
 			} else {
 				// hide everything
-				jmolScript('frame *;display displayed and not ' + self.modelNumber + '.0;');
+				this.hide();
+// 				jmolScript('frame *;display displayed and not ' + self.modelNumber + '.0;');
 			}
 
 		}
 
 		this.hide = function () {
-		    jmolScript('frame *;display displayed and not ' + self.modelNumber + '.0;');
-		    this.checked = false;
+// 		    if (self.hidden == false | self.checked == false) {
+                jmolScript('frame *;display displayed and not ' + self.modelNumber + '.0;');
+                this.hidden  = true;
+                this.checked = false;
+// 		    }
 		}
 
 		this.display = function() {
 			self.toggle_checked();
 			self.toggle_view();
-			self.toggle_checkbox();
+		// 	self.toggle_checkbox();
 		}
 
 	} // end of the model private class
@@ -197,6 +212,7 @@
 
    		$(settings.chbxClass).click(jmolInlineLoader.checkbox_click);
    		checkbox_click( $(settings.chbxClass).first().attr('id') );
+   		$(settings.chbxClass).first().prop("checked", true);
 
    		// attach event handlers if ids have been provided
    		if ( settings.neighborhoodButtonId != '' ) {
@@ -283,7 +299,8 @@
 			this.value = 'Show all';
 			all.each( function(i) {
 				this.checked = false;
-				checkbox_click(this.id);
+				models[this.id].hide();
+// 				checkbox_click(this.id);
 			});
 		} else {
 			// show all
