@@ -1,10 +1,11 @@
-////////////////////////////////////////////////////////////////////////////////
-
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-var jmolInlineLoader = function(){
+/*
+ *
+ *
+ *
+ */
+ 
+ 
+;var jmolInlineLoader = function(){
 
 	var models       = new Array();
 	var neighborhood = false;
@@ -12,7 +13,7 @@ var jmolInlineLoader = function(){
 	var settings     = {};
 	var self = this;
 
-	// defaults are updated in the "initialize" function
+	// defaults are updated in the "init" function
     var defaults = {
 		serverUrl   : 'http://rna.bgsu.edu/research/anton/MotifAtlas/nt_coord.php',
 		chbxClass   : '',
@@ -49,7 +50,7 @@ var jmolInlineLoader = function(){
 		this.superimpose = function () {
 			var m = self.modelNumber;
 			if ( m > 1 ) {
-				for (var i = 0; i < 2; i++) {
+				for (var i = 0; i < 10; i++) {
 					jmolScript('x=compare({*.P/' + m + '.1},{*.P/1.1});');
 					jmolScript('select ' + m + '.0; rotate selected @{x};');
 				}
@@ -159,7 +160,7 @@ var jmolInlineLoader = function(){
 
 	}
 
-	this.initialize = function(options) {
+	this.init = function(options) {
 
 		if ( options ) {
 			settings = $.extend( {}, defaults, options );
@@ -272,7 +273,7 @@ var jmolInlineLoader = function(){
 	}
 
 	return {
-		initialize: initialize,
+		init: init,
 		toggle_all: toggle_all,
 		toggle_neighborhood: toggle_neighborhood,
 		checkbox_click: checkbox_click,
@@ -281,4 +282,3 @@ var jmolInlineLoader = function(){
 	}
 
 }();
-
