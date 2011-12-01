@@ -38,8 +38,9 @@
     <input type="button" id="prev" value="Previous">
     <input type="button" id="next" value="Next">
     <input type="button" id='all' value='Show all'>
+    <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
 
-      <script>
+    <script>
         // make sure that jmol is ready
       	function appletLoaded (){
 			var timeoutID = window.setTimeout(function(){
@@ -49,7 +50,8 @@
                     neighborhoodButtonId: 'neighborhood',
                     showNextButtonId: 'next',
                     showPreviousButtonId: 'prev',
-                    showAllButtonId: 'all'
+                    showAllButtonId: 'all',
+                    showNucleotideNumbersId: 'showNtNums'
 	    		});
 			}, 1500);
       	}

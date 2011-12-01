@@ -39,6 +39,7 @@
     <input type="button" id="neighborhood" value="Show neighborhood">
     <input type="button" id="prev" value="Previous">
     <input type="button" id="next" value="Next">
+    <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
 
       <script>
         // make sure that jmol is ready
@@ -49,7 +50,8 @@
                     serverUrl: 'http://rna.bgsu.edu/Motifs/jmolInlineLoader/nt_coord.php',
                     neighborhoodButtonId: 'neighborhood',
                     showNextButtonId: 'next',
-                    showPreviousButtonId: 'prev'
+                    showPreviousButtonId: 'prev',
+                    showNucleotideNumbersId: 'showNtNums'
 	    		});
 			}, 1500);
       	}

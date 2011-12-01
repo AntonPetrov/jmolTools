@@ -21,7 +21,8 @@
 		neighborhoodButtonId: '',
 		showNextButtonId: '',
 		showPreviousButtonId: '',
-		showAllButtonId: ''
+		showAllButtonId: '',
+		showNucleotideNumbersId: ''
     };
 
 	// "Private" class. Stores the state of each checkbox.
@@ -172,7 +173,7 @@
                 }
             }
         }
-
+		toggle_nt_numbers();
 	}
 
 	this.toggle_neighborhood = function() {
@@ -230,6 +231,10 @@
    		if ( settings.showAllButtonId != '' ) {
    			settings.showAllButtonId = '#' + settings.showAllButtonId;
 	   		$(settings.showAllButtonId).click(jmolInlineLoader.toggle_all);
+   		}
+   		if ( settings.showNucleotideNumbersId != '' ) {
+   			settings.showNucleotideNumbersId = '#' + settings.showNucleotideNumbersId;
+	   		$(settings.showNucleotideNumbersId).click(jmolInlineLoader.toggle_nt_numbers);
    		}
 
 	}
@@ -312,13 +317,24 @@
 		}
 	}
 
+	this.toggle_nt_numbers = function () {
+
+        if ( $(settings.showNucleotideNumbersId).is(':checked') ) {
+    	    jmolScript('select {*.P},{*.CA};label %[sequence]%[resno];');
+        } else {
+            jmolScript('label off;');
+    	}
+
+	}
+
 	return {
 		init: init,
 		toggle_all: toggle_all,
 		toggle_neighborhood: toggle_neighborhood,
 		checkbox_click: checkbox_click,
 		show_prev: show_prev,
-		show_next: show_next
+		show_next: show_next,
+		toggle_nt_numbers: toggle_nt_numbers
 	}
 
 }();
