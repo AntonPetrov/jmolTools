@@ -18,6 +18,7 @@
     var defaults = {
 		serverUrl   : 'http://rna.bgsu.edu/research/anton/MotifAtlas/nt_coord.php',
 		chbxClass   : '',
+		sfdata      : false,
 		neighborhoodButtonId: '',
 		showNextButtonId: '',
 		showPreviousButtonId: '',
@@ -44,8 +45,18 @@
 			var nts = self.jQ.data('nt');
 			$.post(settings.serverUrl, { 'model': nts },
 				function(data) {
-					jmolScript("load DATA \"append structure\"\n" + data + 'end "append structure";');
+					jmolScriptWait("load DATA \"append structure\"\n" + data + 'end "append structure";');
 					self.display();
+					// load structure factor data
+                    if (settings.sfdata == true) {
+                        $.post('http://rna.bgsu.edu/MotifAtlas_dev/ajax/get_dcc_data', { model: nts }, function(data) {
+                            var dcc = jQuery.parseJSON(data);
+                            jmolScript('set propertyAtomNumberField 0;set propertyAtomColumnCount 1;');
+                            $.each(dcc, function (k,v) {
+                                jmolScript('select '+self.modelNumber+'.1;'+k + " = '" + v + "'" + ';DATA "property_' + k + ' @' + k + '";');
+                            });
+                        });
+                    }
 			});
 		}
 
@@ -79,7 +90,7 @@
                 jmolScript('select ' + m + '.2; color translucent 0.8;');
                 jmolScript('select protein; color purple; color translucent 0.8;');
                 jmolScript('select ' + m + '.0;spacefill off;center ' + m + '.1;');
-                jmolScript('zoom {' + m + '} 200;');
+                jmolScript('zoom {' + m + '} 180;');
                 self.styled = true;
             }
 		}
@@ -154,6 +165,17 @@
 			models[id].display();
 		}
 
+        // special case for radiobuttons
+        if (radio) {
+            var clicked_id = $(settings.chbxClass + ':checked').attr('id');
+            for (id in models) {
+                if (id != clicked_id) {
+                    models[id].hide();
+                }
+            }
+        }
+
+
 	}
 
 	this.superimpose_all = function () {
@@ -164,15 +186,6 @@
 			models[id].toggle_view();
 		}
 
-        // special case for radiobuttons
-        if (radio == true && maxModel != 2) {
-            this_model = maxModel - 1;
-            for (id in models) {
-                if (models[id].modelNumber != this_model) {
-                    models[id].hide();
-                }
-            }
-        }
 		toggle_nt_numbers();
 	}
 
@@ -320,7 +333,7 @@
 	this.toggle_nt_numbers = function () {
 
         if ( $(settings.showNucleotideNumbersId).is(':checked') ) {
-    	    jmolScript('select {*.P},{*.CA};label %[sequence]%[resno];');
+    	    jmolScript('select {*.P},{*.CA};label %[sequence]%[resno];color labels black;');
         } else {
             jmolScript('label off;');
     	}
