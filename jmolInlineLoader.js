@@ -94,7 +94,7 @@
                 jmolScript('select [A]/' + m + '.1; color red;');
                 jmolScript('select */' + m + '.2; color grey;');
                 jmolScript('select ' + m + '.2; color translucent 0.8;');
-                jmolScript('select protein; color purple; color translucent 0.8;');
+                jmolScript('select protein; color purple; select hetero;color pink;color translucent 0.8;');
                 jmolScript('select ' + m + '.0;spacefill off;center ' + m + '.1;');
                 jmolScript('zoom {' + m + '.1} 0;');
                 self.styled = true;
