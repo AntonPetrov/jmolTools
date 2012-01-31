@@ -43,7 +43,13 @@
 		this.load_and_display = function () {
 			// get the inline data-nt info
 			var nts = self.jQ.data('nt');
-			$.post(settings.serverUrl, { 'model': nts },
+			var data_type = self.jQ.data('type');
+			if (data_type==undefined) {
+			    data_type = 'model';
+			}
+			var params = {};
+            params[data_type] = nts;
+			$.post(settings.serverUrl, params,
 				function(data) {
 					jmolScriptWait("load DATA \"append structure\"\n" + data + 'end "append structure";');
 					self.display();
