@@ -13,6 +13,7 @@
 	var maxModel     = 1;
 	var settings     = {};
 	var self = this;
+    var stereo = false;
 
 	// defaults are updated in the "init" function
     var defaults = {
@@ -23,7 +24,8 @@
 		showNextButtonId: '',
 		showPreviousButtonId: '',
 		showAllButtonId: '',
-		showNucleotideNumbersId: ''
+		showNucleotideNumbersId: '',
+		showStereoId: ''
     };
 
 	// "Private" class. Stores the state of each checkbox.
@@ -195,6 +197,18 @@
 		toggle_nt_numbers();
 	}
 
+    this.toggle_stereo = function() {
+        if (stereo) {
+            stereo = false;
+            this.value = 'Show stereo';
+            jmolScript('stereo off;');
+        } else {
+            stereo = true;
+            this.value = 'Hide stereo';
+            jmolScript('stereo on;');
+        }
+    }
+
 	this.toggle_neighborhood = function() {
 
 		if (neighborhood) {
@@ -254,6 +268,9 @@
    		if ( settings.showNucleotideNumbersId != '' ) {
    			settings.showNucleotideNumbersId = '#' + settings.showNucleotideNumbersId;
 	   		$(settings.showNucleotideNumbersId).click(jmolInlineLoader.toggle_nt_numbers);
+   		}
+   		if ( settings.showStereoId != '' ) {
+   		    $('#' + settings.showStereoId).click(jmolInlineLoader.toggle_stereo);
    		}
 
 	}
@@ -350,6 +367,7 @@
 		init: init,
 		toggle_all: toggle_all,
 		toggle_neighborhood: toggle_neighborhood,
+		toggle_stereo: toggle_stereo,
 		checkbox_click: checkbox_click,
 		show_prev: show_prev,
 		show_next: show_next,
