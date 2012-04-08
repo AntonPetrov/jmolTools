@@ -29,7 +29,7 @@
     };
 
 	// "Private" class. Stores the state of each checkbox.
-	function model(id, modelNumber, neighborhood) {
+	this.model = function(id, modelNumber, neighborhood) {
 
 		this.id           = id;
 		this.neighborhood = neighborhood;
@@ -371,7 +371,8 @@
 		checkbox_click: checkbox_click,
 		show_prev: show_prev,
 		show_next: show_next,
-		toggle_nt_numbers: toggle_nt_numbers
+		toggle_nt_numbers: toggle_nt_numbers,
+		models: models
 	}
 
 }();
