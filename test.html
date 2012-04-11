@@ -2,9 +2,9 @@
 
 <head>
   <title>Test Checkboxes</title>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
   <script src="jmol/jmol.js"></script>
-  <script src="./jmolInlineLoader.js"></script>
+  <script src="./jquery.jmolTools.js"></script>
 </head>
 
 <body>
@@ -18,44 +18,56 @@
     </div>
 
 	<div>
-        <input type='checkbox' id='s1'  class='jmolInline' data-nt='1S72_1_0_1095,1S72_1_0_1096,1S72_1_0_1097,1S72_1_0_1098,1S72_1_0_1099,1S72_1_0_1257,1S72_1_0_1258,1S72_1_0_1259,1S72_1_0_1261'><label for='s1'>IL_1S72_038</label><br>
-        <input type='checkbox' id='s2'  class='jmolInline' data-nt='1S72_1_0_1456,1S72_1_0_1457,1S72_1_0_1458,1S72_1_0_1459,1S72_1_0_1460,1S72_1_0_1483,1S72_1_0_1484,1S72_1_0_1485,1S72_1_0_1489'><label for='s2'>IL_1S72_052</label><br>
-        <input type='checkbox' id='s3'  class='jmolInline' data-nt='2QBG_1_B_998,2QBG_1_B_999,2QBG_1_B_1000,2QBG_1_B_1001,2QBG_1_B_1002,2QBG_1_B_1153,2QBG_1_B_1154,2QBG_1_B_1155,2QBG_1_B_1157'><label for='s3'>IL_2QBG_036</label><br>
-        <input type='checkbox' id='s4'  class='jmolInline' data-nt='2QBG_1_B_1351,2QBG_1_B_1352,2QBG_1_B_1353,2QBG_1_B_1354,2QBG_1_B_1355,2QBG_1_B_1376,2QBG_1_B_1377,2QBG_1_B_1378,2QBG_1_B_1380'><label for='s4'>IL_2QBG_051</label><br>
-        <input type='checkbox' id='s5'  class='jmolInline' data-nt='2QBG_1_B_1577,2QBG_1_B_1578,2QBG_1_B_1579,2QBG_1_B_1580,2QBG_1_B_1581,2QBG_1_B_1417,2QBG_1_B_1418,2QBG_1_B_1419,2QBG_1_B_1421'><label for='s5'>IL_2QBG_054</label><br>
-        <input type='checkbox' id='s6'  class='jmolInline' data-nt='2XXA_1_F_62,2XXA_1_F_63,2XXA_1_F_64,2XXA_1_F_65,2XXA_1_F_66,2XXA_1_F_31,2XXA_1_F_32,2XXA_1_F_33,2XXA_1_F_37'><label for='s6'>IL_2XXA_007</label><br>
-        <input type='checkbox' id='s7'  class='jmolInline' data-nt='2XXA_1_G_62,2XXA_1_G_63,2XXA_1_G_64,2XXA_1_G_65,2XXA_1_G_66,2XXA_1_G_31,2XXA_1_G_32,2XXA_1_G_33,2XXA_1_G_37'><label for='s7'>IL_2XXA_014</label><br>
-        <input type='checkbox' id='s8'  class='jmolInline' data-nt='2ZJR_1_X_1009,2ZJR_1_X_1010,2ZJR_1_X_1011,2ZJR_1_X_1012,2ZJR_1_X_1013,2ZJR_1_X_1164,2ZJR_1_X_1165,2ZJR_1_X_1166,2ZJR_1_X_1168'><label for='s8'>IL_2ZJR_032</label><br>
-        <input type='checkbox' id='s9'  class='jmolInline' data-nt='2ZJR_1_X_1593,2ZJR_1_X_1594,2ZJR_1_X_1595,2ZJR_1_X_1596,2ZJR_1_X_1597,2ZJR_1_X_1431,2ZJR_1_X_1432,2ZJR_1_X_1433,2ZJR_1_X_1435'><label for='s9'>IL_2ZJR_052</label><br>
-        <input type='checkbox' id='s10' class='jmolInline' data-nt='3O58_1_1_1532,3O58_1_1_1533,3O58_1_1_1534,3O58_1_1_1535,3O58_1_1_1536,3O58_1_1_1585,3O58_1_1_1586,3O58_1_1_1587,3O58_1_1_1590'><label for='s10'>IL_3O58_080</label><br>
-        <input type='checkbox' id='s11' class='jmolInline' data-nt='3PYO_1_A_998,3PYO_1_A_999,3PYO_1_A_1000,3PYO_1_A_1001,3PYO_1_A_1002,3PYO_1_A_1153,3PYO_1_A_1154,3PYO_1_A_1155,3PYO_1_A_1157'><label for='s11'>IL_3PYO_035</label><br>
-        <input type='checkbox' id='s12' class='jmolInline' data-nt='3PYO_1_A_1351,3PYO_1_A_1352,3PYO_1_A_1353,3PYO_1_A_1354,3PYO_1_A_1355,3PYO_1_A_1376,3PYO_1_A_1377,3PYO_1_A_1378,3PYO_1_A_1380'><label for='s12'>IL_3PYO_048</label><br>
-        <input type='checkbox' id='s13' class='jmolInline' data-nt='3PYO_1_A_1577,3PYO_1_A_1578,3PYO_1_A_1579,3PYO_1_A_1580,3PYO_1_A_1581,3PYO_1_A_1417,3PYO_1_A_1418,3PYO_1_A_1419,3PYO_1_A_1421'><label for='s13'>IL_3PYO_051</label>
+        <ul>
+            <li><label><input type='checkbox' id='IL_1JBR_002' class='jmolInline' data-coord='1JBR_AU_1_D_6_C_,1JBR_AU_1_D_7_U_,1JBR_AU_1_D_8_C_,1JBR_AU_1_D_9_A_,1JBR_AU_1_D_10_G_,1JBR_AU_1_D_11_U_,1JBR_AU_1_D_12_A_,1JBR_AU_1_D_13_C_,1JBR_AU_1_D_18_G_,1JBR_AU_1_D_19_G_,1JBR_AU_1_D_20_A_,1JBR_AU_1_D_21_A_,1JBR_AU_1_D_22_C_,1JBR_AU_1_D_23_C_,1JBR_AU_1_D_24_G_'>&nbsp;IL_1JBR_002</label></li>
+            <li><label><input type='checkbox' id='IL_1JBR_001' class='jmolInline' data-coord='1JBR_AU_1_C_6_C_,1JBR_AU_1_C_7_U_,1JBR_AU_1_C_8_C_,1JBR_AU_1_C_9_A_,1JBR_AU_1_C_10_G_,1JBR_AU_1_C_11_U_,1JBR_AU_1_C_12_A_,1JBR_AU_1_C_13_C_,1JBR_AU_1_F_18_G_,1JBR_AU_1_F_19_G_,1JBR_AU_1_F_20_A_,1JBR_AU_1_F_21_A_,1JBR_AU_1_F_22_C_,1JBR_AU_1_F_23_C_,1JBR_AU_1_F_24_G_'>&nbsp;IL_1JBR_001</label></li>
+            <li><label><input type='checkbox' id='IL_1Q96_001' class='jmolInline' data-coord='1Q96_AU_1_A_6_C_,1Q96_AU_1_A_7_U_,1Q96_AU_1_A_8_C_,1Q96_AU_1_A_9_A_,1Q96_AU_1_A_10_G_,1Q96_AU_1_A_11_U_,1Q96_AU_1_A_12_A_,1Q96_AU_1_A_13_U_,1Q96_AU_1_A_18_A_,1Q96_AU_1_A_19_G_,1Q96_AU_1_A_20_A_,1Q96_AU_1_A_21_A_,1Q96_AU_1_A_22_C_,1Q96_AU_1_A_23_C_,1Q96_AU_1_A_24_G_'>&nbsp;IL_1Q96_001</label></li>
+            <li><label><input type='checkbox' id='IL_1Q96_002' class='jmolInline' data-coord='1Q96_AU_1_B_6_C_,1Q96_AU_1_B_7_U_,1Q96_AU_1_B_8_C_,1Q96_AU_1_B_9_A_,1Q96_AU_1_B_10_G_,1Q96_AU_1_B_11_U_,1Q96_AU_1_B_12_A_,1Q96_AU_1_B_13_U_,1Q96_AU_1_B_18_A_,1Q96_AU_1_B_19_G_,1Q96_AU_1_B_20_A_,1Q96_AU_1_B_21_A_,1Q96_AU_1_B_22_C_,1Q96_AU_1_B_23_C_,1Q96_AU_1_B_24_G_'>&nbsp;IL_1Q96_002</label></li>
+            <li><label><input type='checkbox' id='IL_1Q96_003' class='jmolInline' data-coord='1Q96_AU_1_C_6_C_,1Q96_AU_1_C_7_U_,1Q96_AU_1_C_8_C_,1Q96_AU_1_C_9_A_,1Q96_AU_1_C_10_G_,1Q96_AU_1_C_11_U_,1Q96_AU_1_C_12_A_,1Q96_AU_1_C_13_U_,1Q96_AU_1_C_18_A_,1Q96_AU_1_C_19_G_,1Q96_AU_1_C_20_A_,1Q96_AU_1_C_21_A_,1Q96_AU_1_C_22_C_,1Q96_AU_1_C_23_C_,1Q96_AU_1_C_24_G_'>&nbsp;IL_1Q96_003</label></li>
+            <li><label><input type='checkbox' id='IL_3U5H_122' class='jmolInline' data-coord='3U5H_AU_1_5_3018_C_,3U5H_AU_1_5_3019_U_,3U5H_AU_1_5_3020_U_,3U5H_AU_1_5_3021_A_,3U5H_AU_1_5_3022_G_,3U5H_AU_1_5_3023_U_,3U5H_AU_1_5_3024_A_,3U5H_AU_1_5_3025_C_,3U5H_AU_1_5_3030_G_,3U5H_AU_1_5_3031_G_,3U5H_AU_1_5_3032_A_,3U5H_AU_1_5_3033_A_,3U5H_AU_1_5_3034_C_,3U5H_AU_1_5_3035_A_,3U5H_AU_1_5_3036_G_'>&nbsp;IL_3U5H_122</label></li>
+            <li><label><input type='checkbox' id='IL_3UXR_006' class='jmolInline' data-coord='3UXR_AU_1_A_201_C_,3UXR_AU_1_A_202_U_,3UXR_AU_1_A_203_C_,3UXR_AU_1_A_204_A_,3UXR_AU_1_A_205_G_,3UXR_AU_1_A_206_U_,3UXR_AU_1_A_207_A_,3UXR_AU_1_A_208_C_,3UXR_AU_1_A_188_G_,3UXR_AU_1_A_189_G_,3UXR_AU_1_A_190_A_,3UXR_AU_1_A_191_A_,3UXR_AU_1_A_192_C_,3UXR_AU_1_A_193_U_,3UXR_AU_1_A_194_G_'>&nbsp;IL_3UXR_006</label></li>
+            <li><label><input type='checkbox' id='IL_4A1B_003' class='jmolInline' data-coord='4A1B_AU_1_1_80_C_,4A1B_AU_1_1_81_C_,4A1B_AU_1_1_82_C_,4A1B_AU_1_1_83_A_,4A1B_AU_1_1_84_G_,4A1B_AU_1_1_85_U_,4A1B_AU_1_1_86_A_,4A1B_AU_1_1_87_A_,4A1B_AU_1_1_95_U_,4A1B_AU_1_1_96_G_,4A1B_AU_1_1_97_A_,4A1B_AU_1_1_98_A_,4A1B_AU_1_1_99_C_,4A1B_AU_1_1_100_A_,4A1B_AU_1_1_101_G_'>&nbsp;IL_4A1B_003</label></li>
+            <li><label><input type='checkbox' id='IL_1S72_006' class='jmolInline' data-coord='1S72_AU_1_0_171_C_,1S72_AU_1_0_172_U_,1S72_AU_1_0_173_C_,1S72_AU_1_0_174_A_,1S72_AU_1_0_175_G_,1S72_AU_1_0_176_U_,1S72_AU_1_0_177_A_,1S72_AU_1_0_178_U_,1S72_AU_1_0_158_A_,1S72_AU_1_0_159_G_,1S72_AU_1_0_160_A_,1S72_AU_1_0_161_A_,1S72_AU_1_0_162_C_,1S72_AU_1_0_163_U_,1S72_AU_1_0_164_G_'>&nbsp;IL_1S72_006</label></li>
+            <li><label><input type='checkbox' id='IL_2QBG_011' class='jmolInline' data-coord='2QBG_AU_1_B_201_C_,2QBG_AU_1_B_202_U_,2QBG_AU_1_B_203_A_,2QBG_AU_1_B_204_A_,2QBG_AU_1_B_205_G_,2QBG_AU_1_B_206_U_,2QBG_AU_1_B_207_A_,2QBG_AU_1_B_208_C_,2QBG_AU_1_B_188_G_,2QBG_AU_1_B_189_G_,2QBG_AU_1_B_190_A_,2QBG_AU_1_B_191_A_,2QBG_AU_1_B_192_C_,2QBG_AU_1_B_193_U_,2QBG_AU_1_B_194_G_'>&nbsp;IL_2QBG_011</label></li>
+            <li><label><input type='checkbox' id='IL_2ZJR_006' class='jmolInline' data-coord='2ZJR_AU_1_X_178_C_,2ZJR_AU_1_X_179_U_,2ZJR_AU_1_X_180_C_,2ZJR_AU_1_X_181_A_,2ZJR_AU_1_X_182_G_,2ZJR_AU_1_X_183_U_,2ZJR_AU_1_X_184_A_,2ZJR_AU_1_X_185_C_,2ZJR_AU_1_X_165_G_,2ZJR_AU_1_X_166_G_,2ZJR_AU_1_X_167_A_,2ZJR_AU_1_X_168_A_,2ZJR_AU_1_X_169_C_,2ZJR_AU_1_X_170_U_,2ZJR_AU_1_X_171_G_'>&nbsp;IL_2ZJR_006</label></li>
+            <li><label><input type='checkbox' id='IL_4A1B_118' class='jmolInline' data-coord='4A1B_AU_1_1_3007_G_,4A1B_AU_1_1_3008_U_,4A1B_AU_1_1_3009_U_,4A1B_AU_1_1_3010_A_,4A1B_AU_1_1_3011_G_,4A1B_AU_1_1_3012_U_,4A1B_AU_1_1_3013_A_,4A1B_AU_1_1_3014_C_,4A1B_AU_1_1_3019_G_,4A1B_AU_1_1_3020_G_,4A1B_AU_1_1_3021_A_,4A1B_AU_1_1_3022_A_,4A1B_AU_1_1_3023_C_,4A1B_AU_1_1_3024_A_,4A1B_AU_1_1_3025_C_'>&nbsp;IL_4A1B_118</label></li>
+            <li><label><input type='checkbox' id='IL_2ZJR_007' class='jmolInline' data-coord='2ZJR_AU_1_X_215_G_,2ZJR_AU_1_X_216_U_,2ZJR_AU_1_X_217_U_,2ZJR_AU_1_X_218_A_,2ZJR_AU_1_X_219_G_,2ZJR_AU_1_X_220_U_,2ZJR_AU_1_X_221_A_,2ZJR_AU_1_X_222_G_,2ZJR_AU_1_X_230_C_,2ZJR_AU_1_X_231_G_,2ZJR_AU_1_X_232_A_,2ZJR_AU_1_X_233_A_,2ZJR_AU_1_X_234_C_,2ZJR_AU_1_X_235_C_,2ZJR_AU_1_X_236_C_'>&nbsp;IL_2ZJR_007</label></li>
+            <li><label><input type='checkbox' id='IL_4A1C_008' class='jmolInline' data-coord='4A1C_AU_1_3_71_G_,4A1C_AU_1_3_72_U_,4A1C_AU_1_3_73_U_,4A1C_AU_1_3_74_A_,4A1C_AU_1_3_75_G_,4A1C_AU_1_3_76_U_,4A1C_AU_1_3_77_A_,4A1C_AU_1_3_78_C_,4A1C_AU_1_3_98_G_,4A1C_AU_1_3_99_G_,4A1C_AU_1_3_100_A_,4A1C_AU_1_3_101_A_,4A1C_AU_1_3_102_G_,4A1C_AU_1_3_103_U_,4A1C_AU_1_3_104_C_'>&nbsp;IL_4A1C_008</label></li>
+            <li><label><input type='checkbox' id='IL_3U5H_148' class='jmolInline' data-coord='3U5H_AU_1_7_72_A_,3U5H_AU_1_7_74_C_,3U5H_AU_1_7_75_G_,3U5H_AU_1_7_76_A_,3U5H_AU_1_7_77_G_,3U5H_AU_1_7_78_U_,3U5H_AU_1_7_79_A_,3U5H_AU_1_7_80_G_,3U5H_AU_1_7_100_C_,3U5H_AU_1_7_101_G_,3U5H_AU_1_7_102_A_,3U5H_AU_1_7_103_A_,3U5H_AU_1_7_104_A_,3U5H_AU_1_7_105_C_,3U5H_AU_1_7_106_U_'>&nbsp;IL_3U5H_148</label></li>
+            <li><label><input type='checkbox' id='IL_3UXR_046' class='jmolInline' data-coord='3UXR_AU_1_A_1262_A_,3UXR_AU_1_A_1263_U_,3UXR_AU_1_A_1264_G_,3UXR_AU_1_A_1265_A_,3UXR_AU_1_A_1266_G_,3UXR_AU_1_A_1267_U_,3UXR_AU_1_A_1268_A_,3UXR_AU_1_A_1269_A_,3UXR_AU_1_A_2011_U_,3UXR_AU_1_A_2012_G_,3UXR_AU_1_A_2013_A_,3UXR_AU_1_A_2014_A_,3UXR_AU_1_A_2015_A_,3UXR_AU_1_A_2016_U_,3UXR_AU_1_A_2017_U_'>&nbsp;IL_3UXR_046</label></li>
+            <li><label><input type='checkbox' id='IL_2QBG_048' class='jmolInline' data-coord='2QBG_AU_1_B_1262_A_,2QBG_AU_1_B_1263_U_,2QBG_AU_1_B_1264_A_,2QBG_AU_1_B_1265_A_,2QBG_AU_1_B_1266_G_,2QBG_AU_1_B_1267_U_,2QBG_AU_1_B_1268_A_,2QBG_AU_1_B_1269_A_,2QBG_AU_1_B_2011_U_,2QBG_AU_1_B_2012_G_,2QBG_AU_1_B_2013_A_,2QBG_AU_1_B_2014_A_,2QBG_AU_1_B_2015_A_,2QBG_AU_1_B_2016_U_,2QBG_AU_1_B_2017_U_'>&nbsp;IL_2QBG_048</label></li>
+            <li><label><input type='checkbox' id='IL_2ZJR_045' class='jmolInline' data-coord='2ZJR_AU_1_X_1275_A_,2ZJR_AU_1_X_1276_U_,2ZJR_AU_1_X_1277_G_,2ZJR_AU_1_X_1278_A_,2ZJR_AU_1_X_1279_G_,2ZJR_AU_1_X_1280_U_,2ZJR_AU_1_X_1281_A_,2ZJR_AU_1_X_1282_A_,2ZJR_AU_1_X_1994_U_,2ZJR_AU_1_X_1995_G_,2ZJR_AU_1_X_1996_A_,2ZJR_AU_1_X_1997_A_,2ZJR_AU_1_X_1998_A_,2ZJR_AU_1_X_1999_U_,2ZJR_AU_1_X_2000_U_'>&nbsp;IL_2ZJR_045</label></li>
+        </ul>
 	</div>
 
 	<br><br>
+
     <input type="button" id="neighborhood" value="Show neighborhood">
     <input type="button" id="prev" value="Previous">
     <input type="button" id="next" value="Next">
     <input type="button" id='all' value='Show all'>
     <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
+    <label><input type="checkbox" id="stereo1">Stereo</label>
+    <input type="button" id="stereo2" value="Stereo">
 
     <script>
+
+        // initialize the plugin
+        $('.jmolInline').jmolTools({
+            showStereoId: 'stereo2',
+            showNeighborhoodId: 'neighborhood',
+            showNumbersId: 'showNtNums',
+            showNextId: 'next',
+            showPrevId: 'prev',
+            showAllId: 'all'
+        });
+
         // make sure that jmol is ready
       	function appletLoaded (){
-			var timeoutID = window.setTimeout(function(){
-	    		jmolInlineLoader.init({
-                    chbxClass: 'jmolInline',
-                    serverUrl: 'http://rna.bgsu.edu/Motifs/jmolInlineLoader/nt_coord.php',
-                    neighborhoodButtonId: 'neighborhood',
-                    showNextButtonId: 'next',
-                    showPreviousButtonId: 'prev',
-                    showAllButtonId: 'all',
-                    showNucleotideNumbersId: 'showNtNums'
-	    		});
-			}, 1500);
+      	    $('.jmolInline').first().jmolToggle();
       	}
-      </script>
+
+    </script>
 
 
 </body>

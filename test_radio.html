@@ -2,9 +2,9 @@
 
 <head>
   <title>Test Radio</title>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
   <script src="jmol/jmol.js"></script>
-  <script src="./jmolInlineLoader.js"></script>
+  <script src="./jquery.jmolTools.js"></script>
 </head>
 
 <body>
@@ -13,49 +13,42 @@
         <script type="text/javascript">
             jmolInitialize("./jmol");
             jmolSetAppletColor("#ffffff");
-//             jmolSetCallback("appletReadyCallback","appletLoaded");
             jmolApplet(400, "javascript appletLoaded()");
-   //          jmolApplet(400);
         </script>
     </div>
 
 	<div>
-        <input type='radio' name='test' id='s1'  class='jmolInline' data-nt='1S72_1_0_1095,1S72_1_0_1096,1S72_1_0_1097,1S72_1_0_1098,1S72_1_0_1099,1S72_1_0_1257,1S72_1_0_1258,1S72_1_0_1259,1S72_1_0_1261'><label for='s1'>IL_1S72_038</label><br>
-        <input type='radio' name='test' id='s2'  class='jmolInline' data-nt='1S72_1_0_1456,1S72_1_0_1457,1S72_1_0_1458,1S72_1_0_1459,1S72_1_0_1460,1S72_1_0_1483,1S72_1_0_1484,1S72_1_0_1485,1S72_1_0_1489'><label for='s2'>IL_1S72_052</label><br>
-        <input type='radio' name='test' id='s3'  class='jmolInline' data-nt='2QBG_1_B_998,2QBG_1_B_999,2QBG_1_B_1000,2QBG_1_B_1001,2QBG_1_B_1002,2QBG_1_B_1153,2QBG_1_B_1154,2QBG_1_B_1155,2QBG_1_B_1157'><label for='s3'>IL_2QBG_036</label><br>
-        <input type='radio' name='test' id='s4'  class='jmolInline' data-nt='2QBG_1_B_1351,2QBG_1_B_1352,2QBG_1_B_1353,2QBG_1_B_1354,2QBG_1_B_1355,2QBG_1_B_1376,2QBG_1_B_1377,2QBG_1_B_1378,2QBG_1_B_1380'><label for='s4'>IL_2QBG_051</label><br>
-        <input type='radio' name='test' id='s5'  class='jmolInline' data-nt='2QBG_1_B_1577,2QBG_1_B_1578,2QBG_1_B_1579,2QBG_1_B_1580,2QBG_1_B_1581,2QBG_1_B_1417,2QBG_1_B_1418,2QBG_1_B_1419,2QBG_1_B_1421'><label for='s5'>IL_2QBG_054</label><br>
-        <input type='radio' name='test' id='s6'  class='jmolInline' data-nt='2XXA_1_F_62,2XXA_1_F_63,2XXA_1_F_64,2XXA_1_F_65,2XXA_1_F_66,2XXA_1_F_31,2XXA_1_F_32,2XXA_1_F_33,2XXA_1_F_37'><label for='s6'>IL_2XXA_007</label><br>
-        <input type='radio' name='test' id='s7'  class='jmolInline' data-nt='2XXA_1_G_62,2XXA_1_G_63,2XXA_1_G_64,2XXA_1_G_65,2XXA_1_G_66,2XXA_1_G_31,2XXA_1_G_32,2XXA_1_G_33,2XXA_1_G_37'><label for='s7'>IL_2XXA_014</label><br>
-        <input type='radio' name='test' id='s8'  class='jmolInline' data-nt='2ZJR_1_X_1009,2ZJR_1_X_1010,2ZJR_1_X_1011,2ZJR_1_X_1012,2ZJR_1_X_1013,2ZJR_1_X_1164,2ZJR_1_X_1165,2ZJR_1_X_1166,2ZJR_1_X_1168'><label for='s8'>IL_2ZJR_032</label><br>
-        <input type='radio' name='test' id='s9'  class='jmolInline' data-nt='2ZJR_1_X_1593,2ZJR_1_X_1594,2ZJR_1_X_1595,2ZJR_1_X_1596,2ZJR_1_X_1597,2ZJR_1_X_1431,2ZJR_1_X_1432,2ZJR_1_X_1433,2ZJR_1_X_1435'><label for='s9'>IL_2ZJR_052</label><br>
-        <input type='radio' name='test' id='s10' class='jmolInline' data-nt='3O58_1_1_1532,3O58_1_1_1533,3O58_1_1_1534,3O58_1_1_1535,3O58_1_1_1536,3O58_1_1_1585,3O58_1_1_1586,3O58_1_1_1587,3O58_1_1_1590'><label for='s10'>IL_3O58_080</label><br>
-        <input type='radio' name='test' id='s11' class='jmolInline' data-nt='3PYO_1_A_998,3PYO_1_A_999,3PYO_1_A_1000,3PYO_1_A_1001,3PYO_1_A_1002,3PYO_1_A_1153,3PYO_1_A_1154,3PYO_1_A_1155,3PYO_1_A_1157'><label for='s11'>IL_3PYO_035</label><br>
-        <input type='radio' name='test' id='s12' class='jmolInline' data-nt='3PYO_1_A_1351,3PYO_1_A_1352,3PYO_1_A_1353,3PYO_1_A_1354,3PYO_1_A_1355,3PYO_1_A_1376,3PYO_1_A_1377,3PYO_1_A_1378,3PYO_1_A_1380'><label for='s12'>IL_3PYO_048</label><br>
-        <input type='radio' name='test' id='s13' class='jmolInline' data-nt='3PYO_1_A_1577,3PYO_1_A_1578,3PYO_1_A_1579,3PYO_1_A_1580,3PYO_1_A_1581,3PYO_1_A_1417,3PYO_1_A_1418,3PYO_1_A_1419,3PYO_1_A_1421'><label for='s13'>IL_3PYO_051</label>
+        <input type='radio' name="group" id='s1' class='jmolInline' data-coord='IL_85647.1'><label for='s1'>IL_85647.1</label><br>
+        <input type='radio' name="group" id='s2' class='jmolInline' data-coord='IL_1S72_006'><label for='s2'>IL_1S72_006</label><br>
+        <input type='radio' name="group" id='s3' class='jmolInline' data-coord='2QBG_AU_1_B_1262_A_,2QBG_AU_1_B_1263_U_,2QBG_AU_1_B_1264_A_,2QBG_AU_1_B_1265_A_,2QBG_AU_1_B_1266_G_,2QBG_AU_1_B_1267_U_,2QBG_AU_1_B_1268_A_,2QBG_AU_1_B_1269_A_,2QBG_AU_1_B_2011_U_,2QBG_AU_1_B_2012_G_,2QBG_AU_1_B_2013_A_,2QBG_AU_1_B_2014_A_,2QBG_AU_1_B_2015_A_,2QBG_AU_1_B_2016_U_,2QBG_AU_1_B_2017_U_'><label for='s3'>IL_2QBG_048</label><br>
 	</div>
 
 	<br><br>
+
     <input type="button" id="neighborhood" value="Show neighborhood">
     <input type="button" id="prev" value="Previous">
     <input type="button" id="next" value="Next">
     <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
+    <label><input type="checkbox" id="stereo1">Stereo</label>
+    <input type="button" id="stereo2" value="Stereo">
 
-      <script>
+    <script>
+
+        // initialize the plugin
+        $('.jmolInline').jmolTools({
+            showStereoId: 'stereo2',
+            showNeighborhoodId: 'neighborhood',
+            showNumbersId: 'showNtNums',
+            showNextId: 'next',
+            showPrevId: 'prev'
+        });
+
         // make sure that jmol is ready
       	function appletLoaded (){
-			var timeoutID = window.setTimeout(function(){
-	    		jmolInlineLoader.init({
-                    chbxClass: 'jmolInline',
-                    serverUrl: 'http://rna.bgsu.edu/Motifs/jmolInlineLoader/nt_coord.php',
-                    neighborhoodButtonId: 'neighborhood',
-                    showNextButtonId: 'next',
-                    showPreviousButtonId: 'prev',
-                    showNucleotideNumbersId: 'showNtNums'
-	    		});
-			}, 1500);
+      	    $('.jmolInline').first().jmolToggle();
       	}
-      </script>
+
+    </script>
 
 
 </body>
