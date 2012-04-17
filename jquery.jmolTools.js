@@ -172,6 +172,26 @@ if ( typeof Object.create !== 'function' ) {
             }
         },
 
+        jmolShow: function() {
+            var self = $.jmolTools.models[this.id];
+
+            if ( ! self.loaded ) {
+                self.loadData();
+            } else if ( self.hidden ) {
+                self.show();
+            }
+        },
+
+        jmolHide: function() {
+            var self = $.jmolTools.models[this.id];
+
+            if ( ! self.loaded ) {
+                self.loadData();
+            } else if ( !self.hidden ) {
+                self.hide();
+            }
+        },
+
 		toggleCheckbox: function() {
 		    if ( !$.fn.jmolTools.options.toggleCheckbox ) { return; }
             this.$elem.prop('checked', !this.hidden);
@@ -180,7 +200,7 @@ if ( typeof Object.create !== 'function' ) {
 		toggleNeighborhood: function() {
 		    var self = this;
 		    self.neighborhood = !self.neighborhood;
-		    if ( !self.hidden ) {
+		    if ( !self.hidden && self.loaded ) {
                 self.show();
             }
 		}
@@ -220,7 +240,6 @@ if ( typeof Object.create !== 'function' ) {
         },
 
         showAll: function() {
-            this.value = 'Hide all';
             $.each($.jmolTools.models, function(ind, model) {
                 if ( ! model.loaded ) {
                     model.loadData();
@@ -232,12 +251,11 @@ if ( typeof Object.create !== 'function' ) {
         },
 
         hideAll: function() {
-            this.value = 'Show all';
             $.jmolTools.models[$.fn.jmolTools.elems[0].id].hideAll();
         },
 
         showNext: function() {
-            var elems = $.fn.jmolTools.elems,
+            var elems = $($.jmolTools.selector), // can't use cache because the element order can change
                 last = elems.length - 1,
                 indToCheck = new Array();
 
@@ -271,7 +289,7 @@ if ( typeof Object.create !== 'function' ) {
         },
 
         showPrev: function() {
-            var elems = $.fn.jmolTools.elems,
+            var elems = $($.jmolTools.selector), // can't use cache because the element order can change
                 last = elems.length - 1,
                 indToCheck = new Array();
 
@@ -319,9 +337,19 @@ if ( typeof Object.create !== 'function' ) {
             $('#' + $.fn.jmolTools.options.showStereoId).on('click', Helpers.toggleStereo);
             $('#' + $.fn.jmolTools.options.showNeighborhoodId).on('click', Helpers.toggleNeighborhood);
             $('#' + $.fn.jmolTools.options.showNumbersId).on('click', Helpers.toggleNumbers);
-            $('#' + $.fn.jmolTools.options.showAllId).toggle(Helpers.showAll, Helpers.hideAll);
+            $('#' + $.fn.jmolTools.options.showAllId)
+                    .toggle(Helpers.showAll, Helpers.hideAll)
+                    .toggle(
+                function() {
+                    $(this).val('Hide all');
+                },
+                function() {
+                    $(this).val('Show all');
+                }
+            );
             $('#' + $.fn.jmolTools.options.showNextId).on('click', Helpers.showNext);
             $('#' + $.fn.jmolTools.options.showPrevId).on('click', Helpers.showPrev);
+            $('#' + $.fn.jmolTools.options.clearId).on('click', Helpers.hideAll);
 
             $(document).ajaxSend(function() {
                 Helpers.reportLoadingBegan();
@@ -345,6 +373,8 @@ if ( typeof Object.create !== 'function' ) {
     // plugin initialization
     $.fn.jmolTools = function ( options ) {
 
+        $.jmolTools.selector = $(this).selector;
+
         $.fn.jmolTools.options = $.extend( {}, $.fn.jmolTools.options, options );
 
         // bind events
@@ -359,10 +389,20 @@ if ( typeof Object.create !== 'function' ) {
             $.jmolTools.models[this.id] = jmdb;
         });
 
-        // add a convenience method to toggle structures
+        // add convenience methods to toggle structures
         $.fn.jmolToggle = function ( options ) {
             return this.each( function() {
                 $.jmolTools.models[this.id].jmolToggle.apply(this);
+            });
+        }
+        $.fn.jmolShow = function ( options ) {
+            return this.each( function() {
+                $.jmolTools.models[this.id].jmolShow.apply(this);
+            });
+        }
+        $.fn.jmolHide = function ( options ) {
+            return this.each( function() {
+                $.jmolTools.models[this.id].jmolHide.apply(this);
             });
         }
 
@@ -384,7 +424,8 @@ if ( typeof Object.create !== 'function' ) {
         showPrevId:         false,
         showAllId:          false,
         showNumbersId:      false,
-        showStereoId:       false
+        showStereoId:       false,
+        clearId:            false
 	};
 
 })(jQuery);
