@@ -131,10 +131,11 @@ if ( typeof Object.create !== 'function' ) {
             }
 
             if (self.neighborhood) {
-                command = 'frame *;display displayed or ' + m + '.0;';
+                command = 'frame *;display displayed or ' + m + '.0; center ' + m + '.1;';
             } else {
                 command = 'frame *;display displayed or '      + m + '.1;' +
-                          'frame *;display displayed and not ' + m + '.2;';
+                          'frame *;display displayed and not ' + m + '.2;' +
+                          'center ' + m + '.1;';
             }
             jmolScript(command);
             self.hidden = false;
