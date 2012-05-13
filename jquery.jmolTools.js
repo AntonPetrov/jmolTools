@@ -114,7 +114,7 @@ if ( typeof Object.create !== 'function' ) {
                       'select protein and ' + m + '.2; color purple;' +
                       'select hetero  and ' + m + '.2; color pink;' +
                       'select ' + m + '.2; color translucent 0.8;' +
-                      'select ' + m + '.0;' +
+                      'select ' + m + '.1,' + m + '.2;' +
                       'spacefill off;' +
                       'center ' + m + '.1;' +
                       'zoom {'  + m + '.1} 0;';
