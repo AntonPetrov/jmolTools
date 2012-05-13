@@ -95,7 +95,7 @@ if ( typeof Object.create !== 'function' ) {
                 var command = 'if ({*.P/' + m + '.1}.length == {*.P/1.1}) ' +
                               '{x=compare({*.P/' + m + '.1},{*.P/1.1});}' +
                               'else {x=compare({(*.P/' + m + '.1)[1][4]},{(*.P/1.1)[1][4]});};' +
-                              'select ' + m + '.0; rotate selected @{x};';
+                              'select ' + m + '.1,' + m + '.2; rotate selected @{x};';
                 jmolScript(command);
                 }
 
@@ -131,7 +131,7 @@ if ( typeof Object.create !== 'function' ) {
             }
 
             if (self.neighborhood) {
-                command = 'frame *;display displayed or ' + m + '.0; center ' + m + '.1;';
+                command = 'frame *;display displayed or ' + m + '.1,' + m + '.2; center ' + m + '.1;';
             } else {
                 command = 'frame *;display displayed or '      + m + '.1;' +
                           'frame *;display displayed and not ' + m + '.2;' +
@@ -144,8 +144,9 @@ if ( typeof Object.create !== 'function' ) {
 
 		hide: function () {
 		    var self = this;
+		    m = self.modelNumber;
 		    if ( self.loaded ) {
-                jmolScript('frame *;display displayed and not ' + self.modelNumber + '.0;');
+                jmolScript('frame *;display displayed and not ' + m + '.1,' + m + '.2;');
                 self.hidden  = true;
                 self.toggleCheckbox();
             }
