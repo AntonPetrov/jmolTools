@@ -414,9 +414,11 @@ if ( typeof Object.create !== 'function' ) {
         return $.fn.jmolTools.elems;
     }
 
+    var env = window.location.href.split('/')[3]; // rna3dhub or rna3dhub_dev
+
     // default options
 	$.fn.jmolTools.options = {
-        serverUrl   : 'http://rna.bgsu.edu/rna3dhub_dev/rest/getCoordinates',
+        serverUrl   : 'http://rna.bgsu.edu/' + env + '/rest/getCoordinates',
         dataAttribute: 'coord',
         toggleCheckbox: true,      // by default each model will monitor the checked state of its corresponding checkbox
         mutuallyExclusive:  false, // by default will set to false for checkboxes and false for radiobuttons
