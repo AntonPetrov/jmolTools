@@ -416,6 +416,9 @@ if ( typeof Object.create !== 'function' ) {
     }
 
     var env = window.location.href.split('/')[3]; // rna3dhub or rna3dhub_dev
+    if ( env != 'rna3dhub' && env != 'rna3dhub_dev' ) {
+        env = 'rna3dhub';
+    }
 
     // default options
 	$.fn.jmolTools.options = {
