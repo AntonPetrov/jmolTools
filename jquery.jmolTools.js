@@ -223,7 +223,7 @@ if ( typeof Object.create !== 'function' ) {
         toggleNumbers: function() {
             console.log(this);
             if ( $(this).is(':checked') ) {
-                jmolScript('select {*.P},{*.CA};label %[sequence]%[resno];color labels black;');
+                jmolScript("select {*.C1'},{*.CA};label %[sequence]%[resno];color labels black;");
             } else {
                 jmolScript('label off;');
             }
