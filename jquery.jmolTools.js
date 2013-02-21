@@ -146,7 +146,9 @@ if ( typeof Object.create !== 'function' ) {
 		    var self = this;
 		    m = self.modelNumber;
 		    if ( self.loaded ) {
-                jmolScript('frame *;display displayed and not ' + m + '.1,' + m + '.2;');
+		        command = 'frame *;display displayed and not ' + m + '.1;' +
+		                          'display displayed and not ' + m + '.2;'
+                jmolScript(command);
                 self.hidden  = true;
                 self.toggleCheckbox();
             }
