@@ -22,11 +22,13 @@ For example, here is the visualisation of the [sarcin-ricin RNA 3D motif](http:/
 
 ## Input
 
-Working examples can be found in [example1](./example1.html) and [example2](./example2.html).
+The structure to be visualised is specified using the `data-coord` html5 attribute. The html element needs to have a class `jmolInline` (can be configured in plugin options).
+
+Several types of input are supported. Working examples can be found in [example1](./example1.html) and [example2](./example2.html).
 
 ### Unit IDs
 
-Several types of input are supported:
+With Unit IDs you can specify exactly which nucleotides need to be displayed.
 
 ```html
 <input type='checkbox' id='example1' class='jmolTools' data-coord='2QBG_AU_1_B_1262_A_,2QBG_AU_1_B_1263_U_,2QBG_AU_1_B_1264_A_,2QBG_AU_1_B_1265_A_,2QBG_AU_1_B_1266_G_,2QBG_AU_1_B_1267_U_,2QBG_AU_1_B_1268_A_,2QBG_AU_1_B_1269_A_,2QBG_AU_1_B_2011_U_,2QBG_AU_1_B_2012_G_,2QBG_AU_1_B_2013_A_,2QBG_AU_1_B_2014_A_,2QBG_AU_1_B_2015_A_,2QBG_AU_1_B_2016_U_,2QBG_AU_1_B_2017_U_'><label for='s1'>Internal loop</label>
@@ -35,6 +37,8 @@ Several types of input are supported:
 [Unit ID specification](http://rna.bgsu.edu/main/rna-3d-hub-help/unit-ids/)
 
 ### Loop ids
+
+Using loop ids you can retrieve 3D coordinates of internal, hairpin, or 3-way junction loops from RNA 3D structures. Loops ids can be found for any PDB file in RNA 3D Hub, for example, here are [all loops in 1S72](http://rna.bgsu.edu/rna3dhub/pdb/1S72/motifs).
 
 ```html
 <input type='checkbox' id='example1' class='jmolTools' data-coord='IL_1S72_006'><label for='s1'>Internal loop IL_1S72_006</label>
