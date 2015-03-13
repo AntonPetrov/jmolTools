@@ -1,20 +1,16 @@
 <html>
 
 <head>
-  <title>Test Radio</title>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-  <script src="jmol/jmol.js"></script>
+  <title>Radio buttons</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="jsmol/JSmol.min.nojq.js"></script>
   <script src="./jquery.jmolTools.js"></script>
 </head>
 
 <body>
 
     <div>
-        <script type="text/javascript">
-            jmolInitialize("./jmol");
-            jmolSetAppletColor("#ffffff");
-            jmolApplet(400, "javascript appletLoaded()");
-        </script>
+        <script src="./jsmol_initializer.js"></script>
     </div>
 
 	<div>
@@ -31,25 +27,6 @@
     <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
     <label><input type="checkbox" id="stereo1">Stereo</label>
     <input type="button" id="stereo2" value="Stereo">
-
-    <script>
-
-        // initialize the plugin
-        $('.jmolInline').jmolTools({
-            showStereoId: 'stereo2',
-            showNeighborhoodId: 'neighborhood',
-            showNumbersId: 'showNtNums',
-            showNextId: 'next',
-            showPrevId: 'prev'
-        });
-
-        // make sure that jmol is ready
-      	function appletLoaded (){
-      	    $('.jmolInline').first().jmolToggle();
-      	}
-
-    </script>
-
 
 </body>
 </html>
