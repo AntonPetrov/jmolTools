@@ -22,7 +22,7 @@ var Info = {
     color: 'white',
     addSelectionOptions: false,
     use: 'HTML5',
-    j2sPath: 'file:///Users/apetrov/Desktop/jmolTools/jsmol/j2s',
+    j2sPath: './jsmol/j2s',
     readyFunction: jmol_isReady,
     disableInitialConsole: true
 };
