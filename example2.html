@@ -9,24 +9,25 @@
 
 <body>
 
-    <div>
-        <script src="./jsmol_initializer.js"></script>
-    </div>
+  <div>
+    <script src="./jsmol_initializer.js"></script>
+  </div>
 
-	<div>
-        <input type='radio' name="group" id='s1' class='jmolInline' data-coord='IL_85647.1'><label for='s1'>IL_85647.1</label><br>
-        <input type='radio' name="group" id='s2' class='jmolInline' data-coord='IL_1S72_006'><label for='s2'>IL_1S72_006</label><br>
-        <input type='radio' name="group" id='s3' class='jmolInline' data-coord='2QBG_AU_1_B_1262_A_,2QBG_AU_1_B_1263_U_,2QBG_AU_1_B_1264_A_,2QBG_AU_1_B_1265_A_,2QBG_AU_1_B_1266_G_,2QBG_AU_1_B_1267_U_,2QBG_AU_1_B_1268_A_,2QBG_AU_1_B_1269_A_,2QBG_AU_1_B_2011_U_,2QBG_AU_1_B_2012_G_,2QBG_AU_1_B_2013_A_,2QBG_AU_1_B_2014_A_,2QBG_AU_1_B_2015_A_,2QBG_AU_1_B_2016_U_,2QBG_AU_1_B_2017_U_'><label for='s3'>IL_2QBG_048</label><br>
-	</div>
+  <input type="button" id="neighborhood" value="Show neighborhood">
+  <input type="button" id="prev" value="Previous">
+  <input type="button" id="next" value="Next">
+  <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
+  <label><input type="checkbox" id="stereo1">Stereo</label>
+  <input type="button" id="stereo2" value="Stereo">
 
-	<br><br>
-
-    <input type="button" id="neighborhood" value="Show neighborhood">
-    <input type="button" id="prev" value="Previous">
-    <input type="button" id="next" value="Next">
-    <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
-    <label><input type="checkbox" id="stereo1">Stereo</label>
-    <input type="button" id="stereo2" value="Stereo">
+  <div>
+    <!-- motif id, will retrieve the exemplar -->
+    <input type='radio' name="group" id='s1' class='jmolInline' data-coord='IL_85647.1'><label for='s1'>Motif IL_85647.1</label><br>
+    <!-- loop id -->
+    <input type='radio' name="group" id='s2' class='jmolInline' data-coord='IL_1S72_006'><label for='s2'>Internal loop IL_1S72_006</label><br>
+    <!-- unit ID list -->
+    <input type='radio' name="group" id='s3' class='jmolInline' data-coord='2QBG_AU_1_B_1262_A_,2QBG_AU_1_B_1263_U_,2QBG_AU_1_B_1264_A_,2QBG_AU_1_B_1265_A_,2QBG_AU_1_B_1266_G_,2QBG_AU_1_B_1267_U_,2QBG_AU_1_B_1268_A_,2QBG_AU_1_B_1269_A_,2QBG_AU_1_B_2011_U_,2QBG_AU_1_B_2012_G_,2QBG_AU_1_B_2013_A_,2QBG_AU_1_B_2014_A_,2QBG_AU_1_B_2015_A_,2QBG_AU_1_B_2016_U_,2QBG_AU_1_B_2017_U_'><label for='s3'>Internal loop IL_2QBG_048</label>
+  </div>
 
 </body>
 </html>
