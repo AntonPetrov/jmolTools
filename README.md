@@ -32,7 +32,7 @@ Several types of input are supported. Working examples can be found in [example1
 With Unit IDs you can specify exactly which nucleotides need to be displayed.
 
 ```html
-<input type='checkbox' id='example1' class='jmolInline' data-coord='2QBG_AU_1_B_1262_A_,2QBG_AU_1_B_1263_U_,2QBG_AU_1_B_1264_A_,2QBG_AU_1_B_1265_A_,2QBG_AU_1_B_1266_G_,2QBG_AU_1_B_1267_U_,2QBG_AU_1_B_1268_A_,2QBG_AU_1_B_1269_A_,2QBG_AU_1_B_2011_U_,2QBG_AU_1_B_2012_G_,2QBG_AU_1_B_2013_A_,2QBG_AU_1_B_2014_A_,2QBG_AU_1_B_2015_A_,2QBG_AU_1_B_2016_U_,2QBG_AU_1_B_2017_U_'><label for='example1'>Internal loop</label>
+<input type='checkbox' id='example1' class='jmolInline' data-coord='2QBG|1|B|A|1262,2QBG|1|B|U|1263,2QBG|1|B|A|1264,2QBG|1|B|A|1265,2QBG|1|B|G|1266,2QBG|1|B|U|1267,2QBG|1|B|A|1268,2QBG|1|B|A|1269,2QBG|1|B|U|2011,2QBG|1|B|G|2012,2QBG|1|B|A|2013,2QBG|1|B|A|2014,2QBG|1|B|A|2015,2QBG|1|B|U|2016,2QBG|1|B|U|2017'><label for='example1'>Internal loop</label>
 ```
 
 [Unit ID specification](http://rna.bgsu.edu/main/rna-3d-hub-help/unit-ids/)
