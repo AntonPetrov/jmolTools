@@ -243,3 +243,24 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+/*
+Force scrollbars on Macs
+*/
+.force-scrollbars::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.force-scrollbars::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.force-scrollbars::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.force-scrollbars::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
