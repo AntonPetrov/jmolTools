@@ -8,6 +8,11 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/AntonPetrov/jmolTools/master/jsmol/JSmol.min.nojq.js"></script>
+    <script src="https://cdn.rawgit.com/AntonPetrov/jmolTools/master/jquery.jmolTools.js"></script>
+    
   </head>
   <body>
     <section class="page-header">
@@ -48,6 +53,30 @@ For example, here is a visualisation of the <a href="http://rna.bgsu.edu/rna3dhu
 <li>
 <em>next</em>, <em>previous</em>, <em>show all</em>, <em>stereo</em> buttons</li>
 </ul>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+<div>
+  <div>
+    <script src="https://cdn.rawgit.com/AntonPetrov/jmolTools/master/jsmol_initializer.js"></script>
+  </div>
+
+  <input type="button" id="neighborhood" value="Show neighborhood">
+  <input type="button" id="prev" value="Previous">
+  <input type="button" id="next" value="Next">
+  <label><input type="checkbox" id="showNtNums">Nucleotide numbers</label>
+  <input type="button" id="stereo" value="Stereo">
+
+  <div>
+    <!-- motif id, will retrieve the exemplar -->
+    <input type='radio' name="group" id='s1' class='jmolInline' data-coord='IL_85647.1'><label for='s1'>Motif IL_85647.1</label><br>
+    <!-- loop id -->
+    <input type='radio' name="group" id='s2' class='jmolInline' data-coord='IL_1S72_006'><label for='s2'>Internal loop IL_1S72_006</label><br>
+    <!-- unit ID list -->
+    <input type='radio' name="group" id='s3' class='jmolInline' data-coord='2QBG|AU|1|B|1262|A|,2QBG|AU|1|B|1263|U|,2QBG|AU|1|B|1264|A|,2QBG|AU|1|B|1265|A|,2QBG|AU|1|B|1266|G|,2QBG|AU|1|B|1267|U|,2QBG|AU|1|B|1268|A|,2QBG|AU|1|B|1269|A|,2QBG|AU|1|B|2011|U|,2QBG|AU|1|B|2012|G|,2QBG|AU|1|B|2013|A|,2QBG|AU|1|B|2014|A|,2QBG|AU|1|B|2015|A|,2QBG|AU|1|B|2016|U|,2QBG|AU|1|B|2017|U|'><label for='s3'>Internal loop IL_2QBG_048</label>
+  </div>      
+</div>
+
 
 <h2>
 <a id="input" class="anchor" href="#input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input</h2>
