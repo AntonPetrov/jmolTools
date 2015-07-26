@@ -41,7 +41,7 @@
 <p>All you have to do is to specify which part of the 3D structure needs to be displayed, and jmolTools will download and display only that specific part of 3D structure.</p>
 
 <p>JmolTools has been used for many years in <a href="http://rna.bgsu.edu/rna3dhub">RNA 3D Hub</a>, a database for RNA 3D structure annotations.
-For example, here is a visualisation of the <a href="http://rna.bgsu.edu/rna3dhub/motif/view/IL_85647.7">sarcin-ricin RNA 3D motif</a> powered by JmolTools.</p>
+For example, have a look at this visualisation of the <a href="http://rna.bgsu.edu/rna3dhub/motif/view/IL_85647.7">sarcin-ricin RNA 3D motif</a>.</p>
 
 <h2>
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
@@ -63,15 +63,6 @@ For example, here is a visualisation of the <a href="http://rna.bgsu.edu/rna3dhu
     <script src="https://cdn.rawgit.com/AntonPetrov/jmolTools/master/jsmol_initializer.js"></script>
   </div>
 
-  <h3>Controls</h3>
-
-  <button class="btn btn-default" id="neighborhood">Show neighborhood</button>
-  <button class="btn btn-default" id="prev">Previous</button>
-  <button class="btn btn-default" id="next">Next</button>
-  <button class="btn btn-default" id="stereo">Stereo</button>
-  <br>
-  <input type="checkbox" id="showNtNums"><label for="showNtNums">Nucleotide numbers</label>
-
   <h3>Select a structure to display</h3>
 
   <div>
@@ -82,11 +73,20 @@ For example, here is a visualisation of the <a href="http://rna.bgsu.edu/rna3dhu
     <!-- unit ID list -->
     <input type='radio' name="group" id='s3' class='jmolInline' data-coord='2QBG|AU|1|B|1262|A|,2QBG|AU|1|B|1263|U|,2QBG|AU|1|B|1264|A|,2QBG|AU|1|B|1265|A|,2QBG|AU|1|B|1266|G|,2QBG|AU|1|B|1267|U|,2QBG|AU|1|B|1268|A|,2QBG|AU|1|B|1269|A|,2QBG|AU|1|B|2011|U|,2QBG|AU|1|B|2012|G|,2QBG|AU|1|B|2013|A|,2QBG|AU|1|B|2014|A|,2QBG|AU|1|B|2015|A|,2QBG|AU|1|B|2016|U|,2QBG|AU|1|B|2017|U|'><label for='s3'>Internal loop IL_2QBG_048</label>
   </div>      
+
+  <h3>Controls</h3>
+
+  <button class="btn btn-default" id="neighborhood">Show neighborhood</button>
+  <button class="btn btn-default" id="prev">Previous</button>
+  <button class="btn btn-default" id="next">Next</button>
+  <button class="btn btn-default" id="stereo">Stereo</button>
+  <br>
+  <input type="checkbox" id="showNtNums"><label for="showNtNums">Nucleotide numbers</label>
+
 </div>
 
-
 <h2>
-<a id="input" class="anchor" href="#input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input</h2>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions</h2>
 
 <p>The structural fragment is specified using the <code>data-coord</code> html5 attribute. The html element needs to have a class <code>jmolInline</code> (can be configured in plugin options).</p>
 
