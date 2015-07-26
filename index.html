@@ -17,24 +17,26 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">JmolTools</h1>
-      <h2 class="project-tagline">JmolTools is a jQuery plugin for declarative 3D structural visualisation based on Jsmol</h2>
+      <h2 class="project-tagline">JmolTools is a jQuery plugin for declarative 3D structural visualisation</h2>
       <a href="https://github.com/AntonPetrov/jmolTools" class="btn">View on GitHub</a>
       <a href="https://github.com/AntonPetrov/jmolTools/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/AntonPetrov/jmolTools/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
-      <h1>
-<a id="jmoltools" class="anchor" href="#jmoltools" aria-hidden="true"><span class="octicon octicon-link"></span></a>JmolTools</h1>
+      <h2>
+<a id="what-is-jmoltools" class="anchor" href="#what-is-jmoltools" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is JmolTools?</h2>
 
-<p>JmolTools is a <a href="http://jquery.com/">jQuery</a> plugin for declarative 3D structural visualisation based on <a href="http://sourceforge.net/projects/jsmol/">Jsmol</a>.</p>
+<p>JmolTools is a <a href="http://jquery.com/">jQuery</a> plugin for <strong>declarative 3D structural visualisation</strong> based on <a href="http://sourceforge.net/projects/jsmol/">Jsmol</a>.</p>
 
 <h2>
-<a id="motivation" class="anchor" href="#motivation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Motivation</h2>
+<a id="why-jmoltools" class="anchor" href="#why-jmoltools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why jmolTools?</h2>
 
-<p>Although Jmol and Jsmol can retrieve 3D structures from <a href="http://www.wwpdb.org/">PDB</a>, if you want to display only a small part of a large 3D structure (e.g. a ribosome), you still have to download the entire 3D structure. Moreover, if you want to superimpose two small motifs from two different ribosomes you will have to download and keep in memory both ribosomes. This approach does not scale well and cannot support fast user interfaces.</p>
+<p><a href="http://jmol.org/">Jsmol</a> and other 3D visualisation tools do a great job visualising 3D structures, but the way they handle the data is based around processing entire 3D structures. However, this approach is not ideal if you want to display only a small part of a very large 3D structure (for example, a <a href="http://www.rcsb.org/pdb/explore.do?structureId=4V4Q">ribosome</a>) because in order to do that you have to download an entire 3D structure file.</p>
 
-<p>JmolTools provides <strong>random access to 3D coordinates</strong> by taking advantage of the <a href="http://rna.bgsu.edu/main/rna-3d-hub-help/unit-ids/">Unit ID standard</a> developed by <a href="http://ndbserver.rutgers.edu/">NDB</a> and <a href="http://rna.bgsu.edu">BGSU RNA groups</a>.</p>
+<p>It gets worse if you try to superimpose small motifs from two different ribosomes because you will have to download and keep in memory both ribosomes. This approach does not scale well and cannot support fast user interfaces.</p>
+
+<p>JmolTools solves the problem by providing <strong>random access to 3D coordinates</strong> by taking advantage of the <a href="http://rna.bgsu.edu/main/rna-3d-hub-help/unit-ids/">Unit ID standard</a> developed by <a href="http://ndbserver.rutgers.edu/">NDB</a> and the <a href="http://rna.bgsu.edu">BGSU RNA group</a>.</p>
 
 <p>All you have to do is to specify which part of the 3D structure needs to be displayed, and jmolTools will download and display only that specific part of 3D structure.</p>
 
@@ -49,7 +51,7 @@ For example, here is a visualisation of the <a href="http://rna.bgsu.edu/rna3dhu
 </li>
 <li>16 Angstrom neighborhood</li>
 <li>automatic superimpostion of multiple fragments with the same number of nucleotides (using the phosphate atoms)</li>
-<li>can use checkboxes or radio buttons</li>
+<li>can use <em>checkboxes</em> or <em>radio buttons</em></li>
 <li>
 <em>next</em>, <em>previous</em>, <em>show all</em>, <em>stereo</em> buttons</li>
 </ul>
