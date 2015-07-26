@@ -272,7 +272,7 @@ Force scrollbars on Macs
   border: 1px solid #F5F5F5;
 }
 
-/* bootstrap button styling */
+/* Bootstrap button styling */
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -391,4 +391,8 @@ fieldset[disabled] .btn-default:active,
 fieldset[disabled] .btn-default.active {
   background-color: #fff;
   border-color: #ccc;
+}
+
+label {
+  margin-left: 10px;
 }
