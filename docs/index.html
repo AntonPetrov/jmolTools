@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>JmolTools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/AntonPetrov/jmolTools/master/jsmol/JSmol.min.nojq.js"></script>
+    <script src="https://cdn.rawgit.com/AntonPetrov/jmolTools/master/jquery.jmolTools.js"></script>
+    
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">JmolTools</h1>
+      <h2 class="project-tagline">jQuery plugin for declarative 3D structural visualisation</h2>
+      <a href="https://github.com/AntonPetrov/jmolTools" class="btn">View on GitHub</a>
+      <a href="https://github.com/AntonPetrov/jmolTools/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/AntonPetrov/jmolTools/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+<h2>
+<a id="why-jmoltools" class="anchor" href="#why-jmoltools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why jmolTools?</h2>
+
+<p><a href="http://jmol.org/">Jsmol</a> and other 3D visualisation tools do a great job visualising 3D structures, but the way they handle the data is based around processing entire 3D structures. However, this approach is not ideal if you want to display only a small part of a very large 3D structure (for example, a <a href="http://www.rcsb.org/pdb/explore.do?structureId=4V4Q">ribosome</a>) because in order to do that you have to download an entire 3D structure file.</p>
+
+<p>If you want to superimpose small motifs from two different ribosomal structures the browser will have to download and keep in memory both ribosomes. This approach does not scale well and cannot support fast user interfaces.</p>
+
+<p>JmolTools solves the problem by providing <strong>random access to 3D coordinates</strong> by taking advantage of the <a href="http://rna.bgsu.edu/main/rna-3d-hub-help/unit-ids/">Unit ID standard</a> developed by <a href="http://ndbserver.rutgers.edu/">NDB</a> and the <a href="http://rna.bgsu.edu">BGSU RNA group</a>.</p>
+
+<p>All you have to do is specify which part of the 3D structure needs to be displayed, and jmolTools will download and display only that specific part of 3D structure.</p>
+
+<p>JmolTools has been used for many years in <a href="http://rna.bgsu.edu/rna3dhub">RNA 3D Hub</a>, a database for RNA 3D structure annotations.
+For example, have a look at this visualisation of the <a href="http://rna.bgsu.edu/rna3dhub/motif/view/IL_85647.7">sarcin-ricin RNA 3D motif</a>.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>3D coordinates and the 16 Angstrom neighborhood are retrieved using the <a href="http://rna.bgsu.edu/main/rna-3d-hub-help/accessing-rna-3h-hub-data/">RNA 3D Hub API</a>
+</li>
+<li>automatic superimpostion of multiple fragments with the same number of nucleotides (using the phosphate atoms)</li>
+<li>can use <em>checkboxes</em> or <em>radio buttons</em></li>
+<li>
+<em>next</em>, <em>previous</em>, <em>show all</em>, <em>stereo</em> buttons</li>
+</ul>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+<div>
+  <div>
+    <script src="https://cdn.rawgit.com/AntonPetrov/jmolTools/master/jsmol_initializer.js"></script>
+  </div>
+
+  <h3>Select a structure to display</h3>
+
+  <div>
+    <!-- motif id, will retrieve the exemplar -->
+    <input type='radio' name="group" id='s1' class='jmolInline' data-coord='IL_85647.1'><label for='s1'>Motif IL_85647.1</label><br>
+    <!-- loop id -->
+    <input type='radio' name="group" id='s2' class='jmolInline' data-coord='IL_1S72_006'><label for='s2'>Internal loop IL_1S72_006</label><br>
+    <!-- unit ID list -->
+    <input type='radio' name="group" id='s3' class='jmolInline' data-coord='2QBG|AU|1|B|1262|A|,2QBG|AU|1|B|1263|U|,2QBG|AU|1|B|1264|A|,2QBG|AU|1|B|1265|A|,2QBG|AU|1|B|1266|G|,2QBG|AU|1|B|1267|U|,2QBG|AU|1|B|1268|A|,2QBG|AU|1|B|1269|A|,2QBG|AU|1|B|2011|U|,2QBG|AU|1|B|2012|G|,2QBG|AU|1|B|2013|A|,2QBG|AU|1|B|2014|A|,2QBG|AU|1|B|2015|A|,2QBG|AU|1|B|2016|U|,2QBG|AU|1|B|2017|U|'><label for='s3'>Internal loop IL_2QBG_048</label>
+  </div>      
+
+  <h3>Viewer controls</h3>
+
+  <button class="btn btn-default" id="neighborhood">Show 16A neighborhood</button>
+  <button class="btn btn-default" id="prev">Previous</button>
+  <button class="btn btn-default" id="next">Next</button>
+  <button class="btn btn-default" id="stereo">Stereo</button>
+  <br>
+  <input type="checkbox" id="showNtNums"><label for="showNtNums">Nucleotide numbers</label>
+
+</div>
+
+<h2>
+<a id="who-is-this-for" class="anchor" href="#who-is-this-for" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who is this for?</h2>
+
+<ul>
+<li>
+<strong>Web developers and bioinformaticians</strong> looking to create 3D visualisations without having to host PDB files or superimpose fragments</li>
+<li>
+<strong>Teachers</strong> who want to develop interactive teaching material for molecular biology</li>
+<li>
+<strong>Publishers</strong> who want to embed 3D molecular visualisations in papers online or in PDFs</li>
+</ul>
+
+<h2>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions</h2>
+
+<p>The structural fragment is specified using the <code>data-coord</code> html5 attribute. The html element needs to have a class <code>jmolInline</code> (can be configured in plugin options).</p>
+
+<h3>
+<a id="unit-ids" class="anchor" href="#unit-ids" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unit IDs</h3>
+
+<p>With Unit IDs you can specify nucleotides one by one.</p>
+
+<div class="highlight highlight-html"><pre class="force-scrollbars">&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">'</span>checkbox<span class="pl-pds">'</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">'</span>example1<span class="pl-pds">'</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>jmolInline<span class="pl-pds">'</span></span> <span class="pl-e">data-coord</span>=<span class="pl-s"><span class="pl-pds">'</span>2QBG|AU|1|B|1262|A|,2QBG|AU|1|B|1263|U|,2QBG|AU|1|B|1264|A|,2QBG|AU|1|B|1265|A|,2QBG|AU|1|B|1266|G|,2QBG|AU|1|B|1267|U|,2QBG|AU|1|B|1268|A|,2QBG|AU|1|B|1269|A|,2QBG|AU|1|B|2011|U|,2QBG|AU|1|B|2012|G|,2QBG|AU|1|B|2013|A|,2QBG|AU|1|B|2014|A|,2QBG|AU|1|B|2015|A|,2QBG|AU|1|B|2016|U|,2QBG|AU|1|B|2017|U|<span class="pl-pds">'</span></span>&gt;&lt;<span class="pl-ent">label</span> <span class="pl-e">for</span>=<span class="pl-s"><span class="pl-pds">'</span>example1<span class="pl-pds">'</span></span>&gt;Internal loop&lt;/<span class="pl-ent">label</span>&gt;</pre></div>
+
+<p><a href="http://rna.bgsu.edu/main/rna-3d-hub-help/unit-ids/">Unit ID specification</a></p>
+
+<h3>
+<a id="loop-ids" class="anchor" href="#loop-ids" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loop ids</h3>
+
+<p>Using loop ids you can retrieve 3D coordinates of internal, hairpin, or 3-way junction loops from RNA 3D structures. Loops ids can be found for any PDB file in RNA 3D Hub, for example, here are <a href="http://rna.bgsu.edu/rna3dhub/pdb/1S72/motifs">all loops in 1S72</a>.</p>
+
+<div class="highlight highlight-html"><pre class="force-scrollbars">&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">'</span>checkbox<span class="pl-pds">'</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">'</span>example1<span class="pl-pds">'</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>jmolInline<span class="pl-pds">'</span></span> <span class="pl-e">data-coord</span>=<span class="pl-s"><span class="pl-pds">'</span>IL_1S72_006<span class="pl-pds">'</span></span>&gt;&lt;<span class="pl-ent">label</span> <span class="pl-e">for</span>=<span class="pl-s"><span class="pl-pds">'</span>example1<span class="pl-pds">'</span></span>&gt;Internal loop IL_1S72_006&lt;/<span class="pl-ent">label</span>&gt;</pre></div>
+
+<p>View <a href="http://rna.bgsu.edu/rna3dhub/loops/view/IL_1S72_006">IL_1S72_006</a> in RNA 3D Hub</p>
+
+<h3>
+<a id="motif-ids" class="anchor" href="#motif-ids" aria-hidden="true"><span class="octicon octicon-link"></span></a>Motif ids</h3>
+
+<div class="highlight highlight-html"><pre class="force-scrollbars">&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">'</span>checkbox<span class="pl-pds">'</span></span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">'</span>example1<span class="pl-pds">'</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">'</span>jmolInline<span class="pl-pds">'</span></span> <span class="pl-e">data-coord</span>=<span class="pl-s"><span class="pl-pds">'</span>IL_85647.1<span class="pl-pds">'</span></span>&gt;&lt;<span class="pl-ent">label</span> <span class="pl-e">for</span>=<span class="pl-s"><span class="pl-pds">'</span>example1<span class="pl-pds">'</span></span>&gt;Motif IL_85647.1&lt;/<span class="pl-ent">label</span>&gt;</pre></div>
+
+<p><a href="http://rna.bgsu.edu/rna3dhub/motif/view/IL_85647.1">View IL_85647.1</a> in RNA 3D Hub</p>
+
+<h2>
+<a id="feedback" class="anchor" href="#feedback" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feedback</h2>
+
+<p>Please feel free to submit <a href="https://github.com/AntonPetrov/jmolTools/pulls">pull requests</a> or <a href="https://github.com/AntonPetrov/jmolTools/issues">open issues</a> if you have any feedback.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/AntonPetrov/jmolTools">JmolTools</a> is maintained by <a href="https://github.com/AntonPetrov">Anton Petrov</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  </body>
+</html>
