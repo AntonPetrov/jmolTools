@@ -70,7 +70,7 @@ if ( typeof Object.create !== 'function' ) {
 
         appendData: function(data) {
             var self = this;
-            if ( data.indexOf('MODEL') > -1 ) {
+            if ( data.indexOf('data_view') > -1 ) {
                 jmolScriptWait("load DATA \"append structure\"\n" + data + 'end "append structure";');
                 self.loaded = true;
             } else {
